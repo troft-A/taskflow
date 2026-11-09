@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e7">
+  <meta name="description" content="TaskFlow — un espace simple et local pour organiser ses tâches.">
+  <title>TaskFlow — garder le fil</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#accueil" aria-label="TaskFlow, accueil">
+        <span class="brand-mark" aria-hidden="true">t<span>f</span></span>
+        <span>taskflow<span class="brand-period">.</span></span>
+      </a>
+      <span class="local-note"><span class="local-dot" aria-hidden="true"></span> Vos tâches restent sur cet appareil</span>
+    </header>
+
+    <main id="accueil">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">L’atelier du quotidien <span>—</span> <time id="today-label"></time></p>
+        <h1 id="page-title">Gardez le <em>fil.</em></h1>
+        <p class="intro-copy">Une chose après l’autre. Posez vos idées ici, puis avancez à votre rythme.</p>
+      </section>
+
+      <section class="workspace" aria-label="Gestion des tâches">
+        <aside class="composer" aria-labelledby="form-heading">
+          <div class="section-kicker"><span>01</span> Le prochain pas</div>
+          <h2 id="form-heading">Ajouter une tâche</h2>
+          <form id="task-form" novalidate>
+            <input id="task-id" name="id" type="hidden">
+            <label for="task-title">Qu’avez-vous en tête ?</label>
+            <input id="task-title" name="title" type="text" maxlength="120" placeholder="Ex. préparer la présentation" required autocomplete="off">
+            <p id="title-error" class="field-error" role="alert" hidden>Un titre est nécessaire pour créer une tâche.</p>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="task-priority">Priorité</label>
+                <select id="task-priority" name="priority">
+                  <option value="moyenne">Moyenne</option>
+                  <option value="haute">Haute</option>
+                  <option value="basse">Basse</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="task-due">Échéance <span class="optional">(facultative)</span></label>
+                <input id="task-due" name="dueDate" type="date">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button id="submit-button" class="button button-primary" type="submit"><span aria-hidden="true">＋</span> Ajouter la tâche</button>
+              <button id="cancel-edit" class="button button-quiet" type="button" hidden>Annuler</button>
+            </div>
+          </form>
+          <div class="privacy-note"><span aria-hidden="true">↳</span> Enregistré automatiquement dans votre navigateur.</div>
+        </aside>
+
+        <section class="task-area" aria-labelledby="list-heading">
+          <div class="list-topline">
+            <div>
+              <div class="section-kicker"><span>02</span> Votre espace</div>
+              <h2 id="list-heading">La liste <span id="task-count" class="count-badge">0</span></h2>
+            </div>
+            <div class="progress-note" aria-live="polite"><span id="done-count">0</span> terminée(s)</div>
+          </div>
+
+          <div class="controls" aria-label="Options d’affichage">
+            <div class="filter-tabs" role="group" aria-label="Filtrer par statut">
+              <button type="button" class="filter-button is-active" data-filter="toutes" aria-pressed="true">Toutes</button>
+              <button type="button" class="filter-button" data-filter="a-faire" aria-pressed="false">À faire</button>
+              <button type="button" class="filter-button" data-filter="terminees" aria-pressed="false">Terminées</button>
+            </div>
+            <label class="sort-control" for="sort-select"><span>Trier</span>
+              <select id="sort-select">
+                <option value="created">Récentes</option>
+                <option value="priority">Priorité</option>
+                <option value="dueDate">Échéance</option>
+              </select>
+            </label>
+          </div>
+
+          <ul id="task-list" class="task-list" aria-live="polite" aria-relevant="additions removals text"></ul>
+          <div id="empty-state" class="empty-state">
+            <span class="empty-spark" aria-hidden="true">✳</span>
+            <h3>De la place pour commencer.</h3>
+            <p>Ajoutez une tâche — même toute petite — et elle trouvera sa place ici.</p>
+          </div>
+          <p id="storage-warning" class="storage-warning" role="status" hidden>Le stockage local n’est pas disponible. Les changements ne seront pas conservés après fermeture de la page.</p>
+        </section>
+      </section>
+    </main>
+    <footer class="footer"><span>TaskFlow</span><span>Fait pour avancer, pas pour se presser.</span></footer>
+  </div>
+</body>
+</html>
