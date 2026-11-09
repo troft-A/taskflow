@@ -1,23 +1,44 @@
-# TaskFlow
+# 🚀 TaskFlow
 
-TaskFlow est une petite application de gestion de tâches réalisée en HTML, CSS et JavaScript natifs. Elle convient à un projet étudiant : aucun framework, aucune installation et aucun serveur ne sont nécessaires. Les tâches sont conservées dans le stockage local du navigateur.
+> **TaskFlow** est une application web de gestion de tâches réalisée en HTML, CSS et JavaScript natifs. Conçue pour un projet étudiant, elle ne nécessite aucun framework, aucune installation lourde ni aucun serveur.
 
-## Lancer l’application
+---
 
-Ouvrez simplement `index.html` dans un navigateur récent. Les données restent dans le navigateur utilisé ; elles ne sont pas synchronisées entre appareils.
+## 📌 Philosophie du projet
 
-## Fonctionnalités
+> **L’IA propose, c’est nous qui décidons.**  
+> Les outils d’IA peuvent aider à trouver des idées et à formuler des propositions, mais les choix finaux et leur vérification appartiennent au binôme.
 
-- Créer une tâche avec titre, priorité (basse, moyenne ou haute) et échéance facultative. Un titre vide est refusé.
-- Consulter les tâches et repérer les priorités par couleur et les dates d’échéance.
-- Modifier une tâche, la marquer comme terminée ou la supprimer.
-- Filtrer la liste par statut : toutes, à faire ou terminées.
-- Trier par date d’ajout, priorité ou échéance (les tâches sans échéance apparaissent à la fin).
-- Enregistrer automatiquement les changements dans `localStorage`.
-- Échapper l’affichage des données utilisateur avec les API DOM (`textContent`) plutôt qu’en interprétant leur contenu comme du HTML.
-- Interface responsive et utilisable au clavier.
+---
 
-## Structure du projet
+## 🎯 Objectifs
+
+- **Socle clair** : Définir un ensemble fonctionnel solide doté de critères d’acceptation vérifiables.
+- **Cycle de vie complet** : Permettre à l'utilisateur de créer, consulter, modifier, terminer et supprimer ses tâches.
+- **Persistance locale** : Assurer une sauvegarde automatique dans le `localStorage` pour retrouver ses données d'une session à l'autre.
+- **Légèreté et simplicité** : Garder une base épurée en technologies web natives (`HTML5`, `CSS3`, `JavaScript Vanilla`).
+
+---
+
+## ✨ Fonctionnalités
+
+- **Création** : Ajouter une tâche avec un titre (obligatoire), une priorité (*basse*, *moyenne* ou *haute*) et une échéance facultative.
+- **Affichage & Suivi** : Consulter les tâches, identifier les priorités par couleur et repérer les dates d’échéance.
+- **Gestion** : Modifier une tâche, la basculer en terminée ou la supprimer.
+- **Filtres et Tris** : Filtrer par statut (*toutes*, *à faire*, *terminées*) et trier par date d’ajout, priorité ou échéance (les tâches sans échéance s'affichent en fin de liste).
+- **Sécurité & Robustesse** : Échappement des données utilisateur via les API DOM (`textContent`) pour contrer les risques XSS.
+- **Accessibilité & Ergonomie** : Interface responsive et pensée pour l'utilisation au clavier.
+
+---
+
+## 🚀 Lancer l’application
+
+Ouvrez simplement le fichier `index.html` dans un navigateur web récent. 
+*Note : Les données restent stockées localement dans le navigateur utilisé et ne sont pas synchronisées entre différents appareils.*
+
+---
+
+## 📂 Structure du projet
 
 ```text
 .
@@ -31,21 +52,3 @@ Ouvrez simplement `index.html` dans un navigateur récent. Les données restent 
 │   └── USER_STORIES.md # Stories et critères d’acceptation
 └── tests/
     └── core.test.js    # Tests Node.js sans dépendance
-```
-
-## Vérifications développeur
-
-La logique métier est exportée par `app.js` pour pouvoir être testée avec Node.js, sans dépendances :
-
-```sh
-node --check app.js
-node --test tests/core.test.js
-```
-
-## Équipe
-
-À compléter par le binôme :
-
-- Membre 1 : **Nom à compléter**
-- Membre 2 : **Nom à compléter**
-- Classe / groupe : **À compléter**
